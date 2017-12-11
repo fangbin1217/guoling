@@ -206,7 +206,7 @@
                     </div>
                     <div class="resume-item" id="resume-social">
                         <div class="item-primary">
-                            <h3 class="title">社交账号
+                            <h3 class="title">其它
                             </h3>
                             <div class="social-account">
 
