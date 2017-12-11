@@ -47,7 +47,7 @@
                                     </li>
                                     <li id="menu-item-3673" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-3673"><a href="javascript:;">关于我</a>
                                         <ul class="sub-menu">
-                                            <li id="menu-item-958" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-958"><a href="javascript:;">个人简介</a></li>
+                                            <li id="menu-item-958" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-958"><a href="<?php echo config('local')['website']; ?>/resume">个人简介</a></li>
                                         </ul>
                                     </li>
                                 </ul></div> </nav>

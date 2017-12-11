@@ -20,3 +20,7 @@ $router->get('/', function () use ($router) {
 $router->get( '/', [
     'uses' => 'IndexController@index',
 ] );
+
+$router->get( '/resume', [
+    'uses' => 'IndexController@resume',
+] );

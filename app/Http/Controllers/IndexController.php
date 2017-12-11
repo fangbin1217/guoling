@@ -25,13 +25,19 @@ class IndexController extends Controller
     public function index()
     {
         //$user = User::getUserById(1);
-        $local = config('local');
-        $website = $local['website'];
         $this->result['sidebar'] = ['now' =>date('Y-m-d H:i:s', strtotime('-1 days'))];
         $this->result['data'] = ['article1'=>'杭州西湖'];
         $this->result['myview'] = 'index.index.welcome';
         return view('index.index', $this->result);
 
+    }
+
+    public function resume()
+    {
+        $this->result['sidebar'] = ['now' =>date('Y-m-d H:i:s', strtotime('-1 days'))];
+        //$this->result['data'] = ['article1'=>'杭州西湖'];
+        $this->result['myview'] = 'index.about.resume';
+        return view('index.index', $this->result);
     }
 
     //
