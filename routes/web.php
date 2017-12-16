@@ -24,3 +24,8 @@ $router->get( '/', [
 $router->get( '/resume', [
     'uses' => 'IndexController@resume',
 ] );
+
+
+$router->get( 'travel/index/{id}', [
+    'uses' => 'TravelController@index',
+] );

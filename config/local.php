@@ -12,6 +12,13 @@ $localConfig = [
     'description' => '文武创始人花好月圆的个人经验，主要以旅行分享、佳文分享、个人兴趣爱好内容为主的个人经验总结！',
 ];
 
+$localConfig['travel_tag'] = [
+    1 => '1A级',
+    2 => '2A级',
+    3 => '3A级',
+    4 => '4A级',
+    5 => '5A级',
+];
 if (ENVIRONMENT == 'development') {
     $localConfig['website'] = 'http://www.myshared.fb';
 
