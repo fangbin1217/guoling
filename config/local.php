@@ -23,6 +23,7 @@ if (ENVIRONMENT == 'development') {
     $localConfig['website'] = 'http://www.myshared.fb';
 
 } else {
+    //$localConfig['website'] = 'http://hyu3337100001.my3w.com';
     $localConfig['website'] = 'http://www.myshared.top';
 }
  return $localConfig;

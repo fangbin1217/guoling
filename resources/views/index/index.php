@@ -99,7 +99,7 @@
     <!-- 这里是版权说明模块 -->
     <footer id="colophon" class="site-footer" role="contentinfo">
         <div class="site-info">
-            <strong>Copyright © 2011-2018年 myshared.top 花好月圆  版权所有.<a href="javascript:;">xxxxx</a> </strong> <span class="add-info">
+            <strong>Copyright © 2017-2018年 Myshared.top 花好月圆  版权所有.<a href="javascript:;">浙ICP备17059682号-1</a> </strong> <span class="add-info">
         </div>
     </footer>
     <!-- 这里是版权说明模块 -->
