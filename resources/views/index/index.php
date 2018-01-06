@@ -28,7 +28,7 @@
             </nav>
             <div id="menu-box">
                 <div id="top-menu">
-                    <span class="nav-search"></span>
+
                     <div class="logo-site">
                         <h1 class="site-title">
                             <a href="javascript:;"><img src="<?php echo config('local')['website']; ?>/static/image/logo.png" title="花好月圆的个人经验" alt="花好月圆的个人经验" rel="home" /><span class="site-name">花好月圆的个人经验</span></a>
@@ -48,6 +48,7 @@
                                     <li id="menu-item-3673" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-3673"><a href="javascript:;">关于我</a>
                                         <ul class="sub-menu">
                                             <li id="menu-item-958" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-958"><a href="<?php echo config('local')['website']; ?>/resume">个人简介</a></li>
+                                            <li id="menu-item-958" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-958"><a href="<?php echo config('local')['website']; ?>/baby">宝宝成长</a></li>
                                         </ul>
                                     </li>
                                 </ul></div> </nav>
@@ -60,20 +61,24 @@
     <div id="search-main">
         <div class="clear"></div>
     </div>
-    <!-- 这里是导航模块 -->
-
 
     <!-- 这里是公告模块 -->
-    <nav class="breadcrumb">
-        <div class="bull"><i class="be be-volumedown"></i></div><div id="scrolldiv">
-            <div class="scrolltext">
+    <nav class="breadcrumb" id="breadcrumb">
+    <?php if($myview == 'index.index.welcome') { ?>
+
+        <div class="bull"><i class="be"><img src="static/image/common/speaker16.png"/></i></div><div id="scrolldiv">
+            <div class="scrolltext" >
                 <ul>
-                    <li class="scrolltext-title"><a href="javascript:;" rel="bookmark">关于信息规范化要求的通知</a></li>
-                    <li class="scrolltext-title"><a href="javascript:;" rel="bookmark">关于信息规范化要求的通知2</a></li>
+                    <li class="scrolltext-title"><a href="javascript:;" rel="bookmark" style="color:#777;">关于信息规范化要求的通知</a></li>
+                    <li class="scrolltext-title"><a href="javascript:;" rel="bookmark" style="color:#777;">关于信息规范化要求的通知2</a></li>
                 </ul>
             </div>
         </div>
         <script type="text/javascript">$(document).ready(function() {$("#scrolldiv").textSlider({line:1,speed:300,timer:6000});})</script>
+    <!-- 这里是公告模块 -->
+    <?php } else { ?>
+        <div class="bull"><i class="be" style="font-weight:bold;color:#777;"><img src="static/image/common/house16.png"/>&nbsp;<?php echo $navName; ?></i></div>
+    <?php } ?>
     </nav>
     <!-- 这里是公告模块 -->
 
@@ -107,8 +112,7 @@
     <!-- 这里是版权说明模块 -->
     <ul id="scroll">
         <li class="log log-no"><a class="log-button" title="文章目录"><i class="be be-menu"></i></a><div class="log-prompt"><div class="log-arrow">文章目录</div></div></li>
-        <li><a class="scroll-h" title="返回顶部"><i class="be be-arrowup"></i></a></li>
-        <li><a class="scroll-b" title="转到底部"><i class="be be-arrowdown"></i></a></li>
+        <li><a class="scroll-h" title="返回顶部"><i class="be"><img src="static/image/common/up16.png" style="width:24px;height:16px;" /></i></a></li>
         <script type="text/javascript">$(document).ready(function(){if(!+[1,]){present="table";} else {present="canvas";}$('#output').qrcode({render:present,text:window.location.href,width:"150",height:"150"});});</script>
     </ul>
     <!-- 这里是版权说明模块 -->

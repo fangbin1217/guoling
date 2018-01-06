@@ -12,6 +12,11 @@ $localConfig = [
     'description' => '文武创始人花好月圆的个人经验，主要以旅行分享、佳文分享、个人兴趣爱好内容为主的个人经验总结！',
 ];
 
+$localConfig['nav'] = [
+    'resume' => '关于我 > 个人简介',
+    'baby' => '关于我 > 宝宝成长'
+];
+
 $localConfig['travel_tag'] = [
     1 => '1A级',
     2 => '2A级',

@@ -10,10 +10,10 @@ namespace App\Http\Controllers;
 class IndexController extends Controller
 {
 
-    private $result = [];
+
 
     public function __construct() {
-        $this->result = $this->modelCommon;
+        parent::__contract();
     }
     /**
      * Create a new controller instance.
@@ -52,8 +52,17 @@ class IndexController extends Controller
         $this->result['sidebar'] = ['now' =>date('Y-m-d H:i:s', strtotime('-1 days'))];
         //$this->result['data'] = ['article1'=>'杭州西湖'];
         $this->result['myview'] = 'index.about.resume';
+        $this->result['navName'] = config('local')['nav']['resume'];
         return view('index.index', $this->result);
     }
 
+
+    public function baby() {
+        $this->result['sidebar'] = ['now' =>date('Y-m-d H:i:s', strtotime('-1 days'))];
+        //$this->result['data'] = ['article1'=>'杭州西湖'];
+        $this->result['myview'] = 'index.about.baby';
+        $this->result['navName'] = config('local')['nav']['baby'];
+        return view('index.index', $this->result);
+    }
     //
 }
