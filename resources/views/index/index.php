@@ -31,7 +31,7 @@
 
                     <div class="logo-site">
                         <h1 class="site-title">
-                            <a href="javascript:;"><img src="<?php echo config('local')['website']; ?>/static/image/logo.png" title="花好月圆的个人经验" alt="花好月圆的个人经验" rel="home" /><span class="site-name">花好月圆的个人经验</span></a>
+                            <a href="<?php echo config('local')['website']; ?>"><img src="<?php echo config('local')['website']; ?>/static/image/logo.png" title="花好月圆的个人经验" alt="花好月圆的个人经验" rel="home" /><span class="site-name">花好月圆的个人经验</span></a>
                         </h1>
                     </div>
                     <div id="site-nav-wrap">
@@ -77,7 +77,7 @@
         <script type="text/javascript">$(document).ready(function() {$("#scrolldiv").textSlider({line:1,speed:300,timer:6000});})</script>
     <!-- 这里是公告模块 -->
     <?php } else { ?>
-        <div class="bull"><i class="be" style="font-weight:bold;color:#777;"><img src="static/image/common/house16.png"/>&nbsp;<?php echo $navName; ?></i></div>
+        <div class="bull"><i class="be" style="font-weight:bold;color:#777;"><a href="<?php echo config('local')['website']; ?>"><img src="/static/image/common/house16.png"/></a>&nbsp;<?php echo $navName; ?></i></div>
     <?php } ?>
     </nav>
     <!-- 这里是公告模块 -->
@@ -112,7 +112,7 @@
     <!-- 这里是版权说明模块 -->
     <ul id="scroll">
         <li class="log log-no"><a class="log-button" title="文章目录"><i class="be be-menu"></i></a><div class="log-prompt"><div class="log-arrow">文章目录</div></div></li>
-        <li><a class="scroll-h" title="返回顶部"><i class="be"><img src="static/image/common/up16.png" style="width:24px;height:16px;" /></i></a></li>
+        <li><a class="scroll-h" title="返回顶部"><i class="be"><img src="/static/image/common/up16.png" style="width:24px;height:16px;" /></i></a></li>
         <script type="text/javascript">$(document).ready(function(){if(!+[1,]){present="table";} else {present="canvas";}$('#output').qrcode({render:present,text:window.location.href,width:"150",height:"150"});});</script>
     </ul>
     <!-- 这里是版权说明模块 -->

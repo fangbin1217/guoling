@@ -4,12 +4,10 @@ namespace App\Http\Controllers;
 
 class TravelController extends Controller
 {
-
-    private $result = [];
-
     public function __construct() {
-        $this->result = $this->modelCommon;
+        parent::__contract();
     }
+
     /**
      * Create a new controller instance.
      *
@@ -18,6 +16,7 @@ class TravelController extends Controller
     public function index($id)
     {
 
+        $nav = config('local')['nav']['travel'];
 
         $travelInfo = \App\Models\Travel\Travel::getInfoById($id);
         if ($travelInfo) {
@@ -26,6 +25,7 @@ class TravelController extends Controller
         $this->result['sidebar'] = ['now' =>date('Y-m-d H:i:s', strtotime('-1 days'))];
         $this->result['data'] = ['travelInfo' => $travelInfo];
         $this->result['myview'] = 'index.travel.info';
+        $this->result['navName'] = $nav;
         return view('index.index', $this->result);
 
     }
