@@ -29,6 +29,10 @@ $router->get( '/baby', [
     'uses' => 'IndexController@baby',
 ] );
 
+$router->get( '/babymore', [
+    'uses' => 'IndexController@more',
+] );
+
 
 $router->get( 'travel/index/{id}', [
     'uses' => 'TravelController@index',

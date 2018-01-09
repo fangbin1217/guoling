@@ -10,7 +10,7 @@ namespace App\Http\Controllers;
 class IndexController extends Controller
 {
 
-
+    private $limit = 5;
 
     public function __construct() {
         parent::__contract();
@@ -59,10 +59,38 @@ class IndexController extends Controller
 
     public function baby() {
         $this->result['sidebar'] = ['now' =>date('Y-m-d H:i:s', strtotime('-1 days'))];
-        //$this->result['data'] = ['article1'=>'杭州西湖'];
+        $page = 1;
+        $offset = ($page-1)*$this->limit;
+        $familyList = \App\Models\Family\Family::getList($offset, $this->limit);
+        if ($familyList) {
+            foreach ($familyList as $key=>$val) {
+                $randImage = \App\Models\Common\Image::randImage();
+                $familyList[$key]['randImage'] = 'static/image/timeline/'.$randImage;
+                $familyList[$key]['utime'] = date('Y-m-d', strtotime($val['utime']));
+            }
+            $this->result['data'] = ['familyList' => $familyList, 'limit'=>$this->limit];
+        }
+
         $this->result['myview'] = 'index.about.baby';
         $this->result['navName'] = config('local')['nav']['baby'];
         return view('index.index', $this->result);
     }
-    //
+
+    public function more() {
+        $result = ['success'=>false, 'code'=>1, 'msg'=>'暂无数据', 'data'=>''];
+        $page = isset($_GET['page']) ? $_GET['page'] : 2;
+        if ($page > 1) {
+            $offset = ($page - 1) * $this->limit;
+            $familyList = \App\Models\Family\Family::getList($offset, $this->limit);
+            if ($familyList) {
+                foreach ($familyList as $key => $val) {
+                    $randImage = \App\Models\Common\Image::randImage();
+                    $familyList[$key]['randImage'] = 'static/image/timeline/' . $randImage;
+                    $familyList[$key]['utime'] = date('Y-m-d', strtotime($val['utime']));
+                }
+                $result = ['success'=>true, 'code'=>0, 'msg'=>'', 'data'=>$familyList];
+            }
+        }
+        return json_encode($result, JSON_UNESCAPED_UNICODE);
+    }
 }

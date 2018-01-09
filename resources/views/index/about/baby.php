@@ -5,86 +5,59 @@
     h2.top_title span{font-size:12px; color:#666;font-weight:500}
 </style>
 <section id="cd-timeline" class="cd-container">
+    <?php if ($familyList) { foreach ($familyList as $val){?>
     <div class="cd-timeline-block">
         <div class="cd-timeline-img cd-picture">
-            <img src="static/image/timeline/cd-icon-picture.svg" alt="Picture">
+            <img src="<?php echo $val['randImage']; ?>" alt="Picture">
         </div>
 
         <div class="cd-timeline-content">
-            <h2>四个小宝宝玩的很开心</h2>
-            <p><img src="static/image/timeline/baby20171228.jpg" /></p>
+            <h2><?php echo $val['title']; ?></h2>
+            <p><img src="<?php echo $val['image']; ?>" /></p>
             <a href="javascript:;" class="cd-read-more">阅读全文</a>
-            <span class="cd-date">2017-12-28</span>
+            <span class="cd-date"><?php echo $val['utime']; ?></span>
         </div>
     </div>
-    <div class="cd-timeline-block">
-        <div class="cd-timeline-img cd-movie">
-            <img src="static/image/timeline/cd-icon-movie.svg" alt="Movie">
-        </div>
 
-        <div class="cd-timeline-content">
-            <h2>宝宝晒太阳，杀杀菌</h2>
-            <p>
-                <img src="static/image/timeline/baby20171104.jpg"/>
-            </p>
-            <a href="javascript:;" class="cd-read-more">阅读全文</a>
-            <span class="cd-date">2017-11-04</span>
-        </div>
-    </div>
-    <div class="cd-timeline-block">
-        <div class="cd-timeline-img cd-picture">
-            <img src="static/image/timeline/cd-icon-picture.svg" alt="Picture">
-        </div>
-
-        <div class="cd-timeline-content">
-            <h2>大爷姿势很有气势</h2>
-            <p>
-                <img src="static/image/timeline/baby20171028.jpg" />
-            </p>
-            <a href="javascript:;" class="cd-read-more">阅读全文</a>
-            <span class="cd-date">2017-10-28</span>
-        </div>
-    </div>
-    <div class="cd-timeline-block">
-        <div class="cd-timeline-img cd-movie">
-            <img src="static/image/timeline/cd-icon-movie.svg" alt="Movie">
-        </div>
-
-        <div class="cd-timeline-content">
-            <h2>两个小活宝</h2>
-            <p>
-                <img src="static/image/timeline/baby20170829.jpg" />
-            </p>
-            <a href="javascript:;" class="cd-read-more">阅读全文</a>
-            <span class="cd-date">2017-08-29</span>
-        </div>
-    </div>
-    <div class="cd-timeline-block">
-        <div class="cd-timeline-img cd-movie">
-            <img src="static/image/timeline/cd-icon-location.svg" alt="Location">
-        </div>
-
-        <div class="cd-timeline-content">
-            <h2>粑粑和麻麻剪的漂亮头发</h2>
-            <p>
-                <img src="static/image/timeline/baby20170701.jpg" />
-            </p>
-            <a href="javascript:;" class="cd-read-more">阅读全文</a>
-            <span class="cd-date">2017-07-01</span>
-        </div>
-    </div>
-    <div class="cd-timeline-block">
-        <div class="cd-timeline-img cd-movie">
-            <img src="static/image/timeline/cd-icon-location.svg" alt="Location">
-        </div>
-
-        <div class="cd-timeline-content">
-            <h2>宝宝出来了</h2>
-            <p>
-                <img src="static/image/timeline/baby20170601.jpg" />
-            </p>
-            <a href="javascript:;" class="cd-read-more">阅读全文</a>
-            <span class="cd-date">2017-06-01</span>
-        </div>
-    </div>
+    <?php }} ?>
 </section>
+<div class='cd-timeline-block' id="noMore" style="text-align:center;font-size: 20px;"><a href="javascript:;" id="getMore" >加载更多</a></div>
+<script type="text/javascript">
+    var pages = 2;
+    var limit = <?php echo $limit; ?>;
+    $('#getMore').click(function(){
+        if (pages > 1) {
+            $.getJSON("/babymore", {page: pages}, function (json) {
+                if (json) {
+                    var obj = eval( json );
+                    if (obj.success == true) {
+                        var data = obj.data;
+                        var count = data.length;
+                        if (count > 0) {
+                            var moreData = '';
+                            for (var i in data) {
+                                moreData += "<div class='cd-timeline-block'><div class='cd-timeline-img cd-picture'>";
+                                moreData += "<img src='" + data[i].randImage + "' alt='Picture'></div><div class='cd-timeline-content'>";
+                                moreData += "<h2>" + data[i].title + "</h2>";
+                                moreData += "<p><img src=" + data[i].image + " /></p>";
+                                moreData += "<a href='javascript:;' class='cd-read-more'>阅读全文</a>";
+                                moreData += "<span class='cd-date'>" + data[i].utime + "</span></div></div>";
+                            }
+                            pages++;
+                            $('#cd-timeline').append(moreData);
+
+                            if (count < limit) {
+                                pages = 1;
+                                $('#noMore').html("<span>没有更多了</span>");
+                            }
+                        }
+                    } else {
+                        pages = 1;
+                        $('#noMore').html("<span>没有更多了</span>");
+                    }
+                    //console.log(obj);
+                }
+            });
+        }
+    });
+</script>
