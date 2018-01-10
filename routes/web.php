@@ -17,27 +17,6 @@ $router->get('/', function () use ($router) {
 });
 */
 
-$router->get( '/', [
-    'uses' => 'IndexController@index',
-] );
-
-$router->get( '/resume', [
-    'uses' => 'IndexController@resume',
-] );
-
-$router->get( '/baby', [
-    'uses' => 'IndexController@baby',
-] );
-
-$router->get( '/babymore', [
-    'uses' => 'IndexController@more',
-] );
-
-
-$router->get( 'travel/index/{id}', [
-    'uses' => 'TravelController@index',
-] );
-
 $router->get( 'example/test', [
     'uses' => 'ExampleController@test',
 ] );

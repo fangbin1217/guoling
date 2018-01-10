@@ -61,11 +61,11 @@ if (ENVIRONMENT == 'development') {
             'mysql' => [
                 'driver' => 'mysql',
 
-                'host' => env('DB_HOST', '127.0.0.1'),
+                'host' => env('DB_HOST', 'rdsoe2hc19v08fsrq14l.mysql.rds.aliyuncs.com'),
                 'port' => env('DB_PORT', 3306),
-                'database' => env('DB_DATABASE', 'myshared'),
-                'username' => env('DB_USERNAME', 'root'),
-                'password' => env('DB_PASSWORD', '123456'),
+                'database' => env('DB_DATABASE', 'stone_bankdepository'),
+                'username' => env('DB_USERNAME', 'stone_function'),
+                'password' => env('DB_PASSWORD', 'y42f3Q5IWue6BhL'),
 
                 /* 主从开启设置
                 'read' => [
@@ -226,11 +226,11 @@ if (ENVIRONMENT == 'development') {
             'mysql' => [
                 'driver' => 'mysql',
 
-                'host' => env('DB_HOST', 'hdm359939428.my3w.com'),
+                'host' => env('DB_HOST', ''),
                 'port' => env('DB_PORT', 3306),
-                'database' => env('DB_DATABASE', 'hdm359939428_db'),
-                'username' => env('DB_USERNAME', 'hdm359939428'),
-                'password' => env('DB_PASSWORD', 'mysql2016fb'),
+                'database' => env('DB_DATABASE', ''),
+                'username' => env('DB_USERNAME', ''),
+                'password' => env('DB_PASSWORD', ''),
 
                 /* 主从开启设置
                 'read' => [
